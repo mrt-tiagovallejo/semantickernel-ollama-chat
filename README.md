@@ -1,9 +1,9 @@
 # 🧠 SemanticKernel.Ollama.Chat
 
-**A minimal C# chat interface for interacting with Ollama models using Semantic Kernel.**
+**A minimal C# chat interface for interacting with Ollama models using Semantic Kernel with function calling support.**
 
 This project demonstrates a simple C# chatbot example using [`Microsoft.SemanticKernel`](https://learn.microsoft.com/en-us/semantic-kernel/overview/), integrated with [Ollama](https://ollama.com/).
-The example uses `llama3:8b` by default, but can be easily customized to use different models or configurations via `appsettings.json`.
+The example uses `llama3-groq-tool-use:8b` by default to support tool use/function calling, but can be easily customised to use different models or configurations via `appsettings.json`.
 
 ---
 
@@ -19,7 +19,7 @@ The example uses `llama3:8b` by default, but can be easily customized to use dif
 
 - [.NET 8+](https://dotnet.microsoft.com/)
 - [Ollama](https://ollama.com/) installed and running locally  
-  (_e.g., `ollama run llama3:8b`_)
+  (_e.g., `ollama run llama3-groq-tool-use:8b`_)
 
 ---
 
