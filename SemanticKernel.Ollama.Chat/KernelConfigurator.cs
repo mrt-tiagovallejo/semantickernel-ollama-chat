@@ -29,6 +29,7 @@ public static class KernelConfigurator
 
         // Plugins
         builder.Plugins.AddFromType<NewsFeedPlugin>();
+        builder.Plugins.AddFromType<ArchivePlugin>();
 
         return builder.Build();
     }
