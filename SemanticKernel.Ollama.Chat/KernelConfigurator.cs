@@ -4,8 +4,9 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.SemanticKernel;
+using SemanticKernel.Ollama.Chat.Plugins;
 
-public static class ServiceConfigurator
+public static class KernelConfigurator
 {
     public static Kernel BuildKernel(IConfiguration configuration)
     {
@@ -17,13 +18,17 @@ public static class ServiceConfigurator
             throw new ArgumentNullException("Invalid config!");
         }
 
-        var builder = Kernel
-            .CreateBuilder()
-            .AddOllamaChatCompletion(model, new Uri(uri));
+        var builder = Kernel.CreateBuilder();
+
+        // Services
+        builder.Services.AddOllamaChatCompletion(model, new Uri(uri));
 
         builder.Services.AddLogging(logging => logging
             .AddConsole()
             .SetMinimumLevel(LogLevel.Warning));
+
+        // Plugins
+        builder.Plugins.AddFromType<NewsFeedPlugin>();
 
         return builder.Build();
     }

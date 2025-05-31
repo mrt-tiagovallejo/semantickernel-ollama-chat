@@ -21,7 +21,6 @@ public static class OllamaChatService
 
         while (true)
         {
-
             var input = GetUserInput();
             if (string.IsNullOrEmpty(input))
                 break;
@@ -42,9 +41,9 @@ public static class OllamaChatService
         try
         {
             var result = await chatService.GetChatMessageContentAsync(
-            history,
-            executionSettings: settings,
-            kernel: kernel);
+                history,
+                executionSettings: settings,
+                kernel: kernel);
 
             history.AddMessage(result.Role, result.Content ?? string.Empty);
 
