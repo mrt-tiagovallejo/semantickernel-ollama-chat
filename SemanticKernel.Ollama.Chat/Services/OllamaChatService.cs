@@ -15,7 +15,7 @@ public static class OllamaChatService
             FunctionChoiceBehavior = FunctionChoiceBehavior.Auto()
         };
 
-        var history = new ChatHistory();
+        var history = new ChatHistory("When saving outputs to a file, if it is news make sure to include links");
 
         Console.WriteLine("Write your message to the AI bot");
 
